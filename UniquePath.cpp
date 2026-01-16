@@ -54,7 +54,7 @@ int main(void){
     int m = 8;
     int n = 5;
     sol.drawBox(m,n);
-    std:: cout << sol.uniquePaths(m,n)<< " unique traversals paths exist."<<std::endl;
-    std:: cout << fastBin(m,n) << std::endl;
+    //std:: cout << sol.uniquePaths(m,n)<< " unique traversals paths exist."<<std::endl;
+    std:: cout << fastBin(m,n) << " unique traversal paths exist." << std::endl;
     return 0;
 }
