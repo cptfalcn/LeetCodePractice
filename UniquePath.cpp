@@ -3,13 +3,13 @@
 #define path "\u25AA"
 
 //Prone to overflow
-int fact(int n){
-     return (n==0) || (n==1) ? 1 : n* fact(n-1);
-}
+// int fact(int n){
+//      return (n==0) || (n==1) ? 1 : n* fact(n-1);
+// }
 
-int Choose(int n, int r){
-    return fact(n)/(fact(r)* fact(n -r));
-}
+// int Choose(int n, int r){
+//     return fact(n)/(fact(r)* fact(n -r));
+// }
 
 
 //This is the version that is less prone to overflow because addition is used, not mult.
@@ -25,7 +25,8 @@ int fastBin(int n, int m){
 class Solution {
 public:
     int uniquePaths(int m, int n) {
-        return Choose(m+n-2, m-1);
+        //return Choose(m+n-2, m-1);
+        return fastBin(m,n);
     }
     //Visualizes the maze, uses m and n.
     //Calls the two other draw functions and the macro defined ANSCII codes.
