@@ -1,0 +1,4 @@
+g++ Palindrome.cpp -o Palindrome.x
+
+echo "==========================Built Palindrome=========================="
+./Palindrome.x

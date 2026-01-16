@@ -1,0 +1,4 @@
+g++ RemoveDuplicates.cpp -o RemoveDuplicates.x
+
+echo "==========================Built RemoveDuplicates=========================="
+./RemoveDuplicates.x

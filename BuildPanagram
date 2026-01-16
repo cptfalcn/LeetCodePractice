@@ -1,0 +1,4 @@
+g++ Panagram.cpp -o Panagram.x
+
+echo "==========================Built Palindrome=========================="
+./Panagram.x

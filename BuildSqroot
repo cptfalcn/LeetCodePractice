@@ -1,0 +1,4 @@
+g++ Sqroot.cpp -o Sqroot.x
+
+echo "==========================Built Sqroot=========================="
+./Sqroot.x

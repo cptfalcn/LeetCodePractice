@@ -1,0 +1,4 @@
+g++ FindFirstLast.cpp -o FindFirstLast.x
+
+echo "==========================Built FindFirstLast=========================="
+./FindFirstLast.x

@@ -1,0 +1,4 @@
+g++ UniquePath.cpp -o UniquePath.x
+
+echo "==========================Built UniquePaths=========================="
+./UniquePath.x

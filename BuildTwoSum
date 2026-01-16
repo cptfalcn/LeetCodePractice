@@ -1,0 +1,4 @@
+g++ TwoSum.cpp -o TwoSum.x
+
+echo "==========================Built Two Sum=========================="
+./TwoSum.x
