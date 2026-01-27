@@ -1,0 +1,4 @@
+g++ countAndSay.cpp -o countAndSay.x
+
+echo "==========================Built CountAndSay=========================="
+./countAndSay.x
