@@ -8,11 +8,13 @@
 #include <functional>
 #include <iomanip>
 #include "Integrator.h"
+#include "Problem.h"
 
 using namespace std;
 int main(int argc, char** argv){
-    std:: cout << "hello world\n";
+    //std:: cout << "hello world\n";
     std::shared_ptr<fx_x> pb_ptr = make_shared<fx_x>();
+    std::shared_ptr<fx_x2> pb_ptr2 = make_shared<fx_x2>();
    
     auto i_ptr = make_shared<integrator<double>>(pb_ptr);
    

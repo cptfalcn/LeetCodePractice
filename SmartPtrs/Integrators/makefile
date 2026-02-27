@@ -16,11 +16,11 @@ endif
 all: $(TARGET)
 Integrator.x:	Tests.o Integrator.o Problem.o
 	$(CC)	$(CFLAGS)	$(OBJECTS)	-o	$(TARGET)
-Tests.o: Tests.cpp Integrator.h
+Tests.o: Tests.cpp Integrator.h	Template.h
 	$(CC)	$(CFLAGS)	-c	Tests.cpp
-Problem.o: Problem.cpp Problem.h
+Problem.o: Problem.cpp Problem.h	Integrator.h	Template.h
 	$(CC)	$(CFLAGS)	-c	Problem.cpp
-Integrator.o: Integrator.cpp Integrator.h Problem.h
+Integrator.o: Integrator.cpp Integrator.h Problem.h	Template.h
 	$(CC)	$(CFLAGS)	-c	Integrator.cpp
 
 

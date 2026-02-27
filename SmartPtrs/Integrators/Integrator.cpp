@@ -18,6 +18,8 @@
 888       Y88b 888 888 Y8b.     888     
 8888888888 "Y88888 888  "Y8888  888     
 =======================================*/ 
+
+
 backwardEuler::backwardEuler(std::shared_ptr<problem<double>> p_ptr, double step_size, double start_time, double end_time, double init_cond, int steps):
 scalarConstStepper(p_ptr, step_size, start_time, end_time, init_cond, steps){}   
 
@@ -82,13 +84,4 @@ Y8b d88P
 ======================================================================================*/
 double fx_is_x(double data , double time){
     return time;
-}
-
-
-
-double fx_x :: rhs(double input, double time ) {
-    return time;
-}
-double fx_x :: jac(double input, double time) {
-    return 1.0;
 }

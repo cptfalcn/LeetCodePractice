@@ -7,6 +7,7 @@
 #include <sstream>
 #include <bits/stdc++.h>
 #include <iomanip>
+#include "Integrator.h"
 #ifndef problem_h
 #define problem_h
 /*===================================================================================
@@ -29,28 +30,25 @@ I suggest that your inhereting version be exactingly specific and not templated.
 All problems are of the form y' = rhs(y,t).
 Higher order methods may need the Jacobian.
 ====================================================================*/
-// template<class T>
-// class problem{
-//     public:
-//         std::function<T(T,T)> rhs_func;
-//         virtual T rhs(T data, T time){
-//             std :: cout <<"running base problem class rhs\n";
-//             return data;
-//         };
-//         virtual T jac(T data, T time){
-//             std :: cout <<"running base problem class jac\n";
-//             return data;
-//         };
-//         void setFunction(std::function<T(T,T)> input ){
-//             this->rhs_func = input;
-//         }
-// };
+/*===============================================
+sample problem for f: R -> R, y' = f(x) = x
+=>  y = x^2/2 + c 
+=================================================*/
+class fx_x : public problem<double>{
+    public:
+        //using problem<double>::problem;
+        double rhs(double, double) override;
+        double jac(double, double) override;
+};
 
-
-// double fx_is_x(double  , double );
-
-
-// double fx_x :: rhs(double , double ); 
-// double fx_x :: jac(double , double ); 
+/*===============================================
+sample problem for f: R -> R, y' = f(x) = x^2
+=>  y = x^3/3 + c 
+=================================================*/
+class fx_x2 : public problem<double>{
+    public:
+        double rhs(double, double) override;
+        double jac(double, double) override;
+};
 
 #endif

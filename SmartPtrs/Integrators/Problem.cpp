@@ -7,6 +7,7 @@
 #include <bits/stdc++.h>
 #include <iomanip>
 #include "Integrator.h"
+#include "Problem.h"
 
 /*====================================================================================
          d8b                   .d888   .d88          88b.                                  
@@ -25,11 +26,25 @@ Y8b d88P
 //     return time;
 // }
 
+/*===============================================
+sample problem for f: R -> R, y' = f(x) = x
+=>  y = x^2/2 + c 
+=================================================*/
 
+double fx_x :: rhs(double input, double time ) {
+    return time;
+}
+double fx_x :: jac(double input, double time) {
+    return 1.0;
+}
 
-// double fx_x :: rhs(double input, double time ) {
-//     return time;
-// }
-// double fx_x :: jac(double input, double time) {
-//     return 1.0;
-// }
+/*===============================================
+sample problem for f: R -> R, y' = f(x) = x^2
+=>  y = x^3/3 + c 
+=================================================*/
+double fx_x2 :: rhs(double input, double time ) {
+    return time*time;
+}
+double fx_x2 :: jac(double input, double time) {
+    return 2*time;
+ }
