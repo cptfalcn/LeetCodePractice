@@ -22,19 +22,16 @@ Y88b 888                      888     Y88b. .d8""8b. .d88P                   .d8
 Y8b d88P                                                                                   
  "Y88P"                                                                                    
 ======================================================================================*/
-// double fx_is_x(double data , double time){
-//     return time;
-// }
 
 /*===============================================
 sample problem for f: R -> R, y' = f(x) = x
 =>  y = x^2/2 + c 
 =================================================*/
 
-double fx_x :: rhs(double input, double time ) {
+double fx_x :: rhs(const double input, const double time ) {
     return time;
 }
-double fx_x :: jac(double input, double time) {
+double fx_x :: jac(const double input, const double time) {
     return 1.0;
 }
 
@@ -42,9 +39,18 @@ double fx_x :: jac(double input, double time) {
 sample problem for f: R -> R, y' = f(x) = x^2
 =>  y = x^3/3 + c 
 =================================================*/
-double fx_x2 :: rhs(double input, double time ) {
+double fx_x2 :: rhs(const double input, const double time ) {
     return time*time;
 }
-double fx_x2 :: jac(double input, double time) {
+double fx_x2 :: jac(const double input, const double time) {
     return 2*time;
+ }
+
+
+
+ double fx_sinx :: rhs(const double input, const double time ) {
+    return sin(time);
+}
+double fx_sinx :: jac(const double input, const double time) {
+    return cos(time);
  }

@@ -19,7 +19,7 @@
 8888888888 "Y88888 888  "Y8888  888     
 =======================================*/ 
 
-
+//Constructor
 backwardEuler::backwardEuler(std::shared_ptr<problem<double>> p_ptr, double step_size, double start_time, double end_time, double init_cond, int steps):
 scalarConstStepper(p_ptr, step_size, start_time, end_time, init_cond, steps){}   
 
@@ -35,8 +35,8 @@ void backwardEuler::initialize(){
 }
 
 
-
-void backwardEuler::set(double step, double start, double end, double initial){
+//Set parameters for integration
+void backwardEuler::set(const double step, const double start, const double end, const double initial){
     this->step_size= step;
     this->start_time= start;
     this->end_time = end;
@@ -44,8 +44,7 @@ void backwardEuler::set(double step, double start, double end, double initial){
 }
 
 
-
-
+//The important step function
 void backwardEuler::step(){
     //y(n+1)= y(n) + h * rhs(y(n), t(n))
     //Increment the step to the back of the vector
@@ -58,30 +57,12 @@ void backwardEuler::step(){
     times.push_back(this->times.back()+ this->step_size);
 }
 
+//A two column print function
 void backwardEuler::print(){
-    for( auto x = this->time_series.begin(), y=this->times.begin(); 
+    std :: cout << " time \t\t state\n";
+    for(auto x = this->time_series.begin(), y=this->times.begin(); 
         x!=this->time_series.end() && y!=this->times.end();
         ++x, ++y){
         std :: cout << *y << "\t\t" << *x << std:: endl;
     }
-}
-
-                                        
-
-
-/*====================================================================================
-         d8b                   .d888   .d88          88b.                                  
-         88P                  d88P"   d88P"          "Y88b                                 
-         8P                   888    d88P              Y88b                                
-888  888 "        888888      888888 888    888  888    888      888888      888  888      
-888  888                      888    888    `Y8bd8P'    888                  `Y8bd8P'      
-888  888          888888      888    Y88b     X88K     d88P      888888        X88K        
-Y88b 888                      888     Y88b. .d8""8b. .d88P                   .d8""8b.      
- "Y88888                      888      "Y88 888  888 88P"                    888  888      
-     888                                                                                   
-Y8b d88P                                                                                   
- "Y88P"                                                                                    
-======================================================================================*/
-double fx_is_x(double data , double time){
-    return time;
 }

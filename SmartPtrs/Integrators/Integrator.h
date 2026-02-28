@@ -11,8 +11,6 @@
 #ifndef integrator_h
 #define integrator_h
 
-
-double fx_is_x(double, double);
 /*==================================================================================
 d8b          888                                     888                             
 Y8P          888                                     888                             
@@ -26,51 +24,12 @@ Y8P          888                                     888
                             Y8b d88P                                                 
                              "Y88P"                                                  
 ===================================================================================*/
-/*
-This is the basic version of a scalar constant time stepper integrator function that all other methods should derive from.
-*/
-template <typename T>
-class scalarConstStepper : public integrator<T>{
-    protected:
-        T               step_size;
-        T               start_time;
-        T               end_time;
-        T               init_cond;
-        int             steps;
-        std::vector<T>  time_series;
-        std::vector<T>  times;
-    public:
-        scalarConstStepper(std::shared_ptr<problem<double>> p_ptr, T step_size, T start_time, T end_time, T init_cond, int steps): 
-        integrator<double>(p_ptr), step_size(step_size), start_time(start_time), init_cond(init_cond), steps(steps){
-             std :: cout << "We have created an constant time step integrator\n";
-        }
-        virtual void step(){
-        };//Must be overwritten
-        virtual void initialize(){};  
-        //You want to inherit this, and override the other methods
-        void integrate(){
-            int step_num =  0 ;
-            this->initialize();
-            while(step_num < this->steps)
-            {
-                this->step();
-                step_num++;
-            }
-        }
-};
 
-
-
-
-
-
-
-
-class backwardEuler: public scalarConstStepper<double>{
+class backwardEuler final : public scalarConstStepper<double>{
     public:
         backwardEuler(std::shared_ptr<problem<double>>, double, double, double, double, int);
-        void print();
-        void set(double, double , double, double);
+        void print(); //New
+        void set(const double, const double , const double, const double);//New
         void step() override;
         void initialize() override;
 }; 
